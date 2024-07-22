@@ -41,16 +41,36 @@
 
 // export default Search;
 
+// import React from "react";
+
+// function Search({ handleSearch }) {
+//   const handleInputChange = (e) => {
+//     handleSearch(e.target.value);
+//   };
+//   return (
+//     <div className="searchbar">
+//       <label htmlFor="search">Search Plants:</label>
+//       <input type="text" id="search" placeholder="Type a name to search..." onChange={handleInputChange} />
+//     </div>
+//   );
+// }
+
+// export default Search;
+
+
 import React from "react";
 
-function Search({ handleSearch }) {
-  const handleInputChange = (e) => {
-    handleSearch(e.target.value);
-  };
+function Search({ handleSearch, searchPlant}) {
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>
-      <input type="text" id="search" placeholder="Type a name to search..." onChange={handleInputChange} />
+      <input
+        type="text"
+        value={searchPlant}
+        id="search"
+        placeholder="Type a name to search..."
+        onChange={(e) => handleSearch(e.target.value)}
+      />
     </div>
   );
 }

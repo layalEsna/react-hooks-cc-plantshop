@@ -34,9 +34,20 @@
 //export default PlantList;
 
 
-import React from "react";
-import PlantCard from "./PlantCard";
+// import React from "react";
+// import PlantCard from "./PlantCard";
 
+// // function PlantList({ plants, handleUpdateButton, update }) {
+// //   return (
+// //     <ul className="cards">
+// //       {plants.map((plant) => (
+// //         <PlantCard key={plant.id} plant={plant} handleUpdateButton={handleUpdateButton} update={update[plant.id]} />
+// //       ))}
+// //     </ul>
+// //   );
+// // }
+
+// // export default PlantList;
 // function PlantList({ plants, handleUpdateButton, update }) {
 //   return (
 //     <ul className="cards">
@@ -46,15 +57,25 @@ import PlantCard from "./PlantCard";
 //     </ul>
 //   );
 // }
-
 // export default PlantList;
-function PlantList({ plants, handleUpdateButton, update }) {
+
+
+import React from "react";
+import PlantCard from "./PlantCard";
+
+function PlantList({plants, isSoledOut,handleToggle}) {
   return (
     <ul className="cards">
-      {plants.map((plant) => (
-        <PlantCard key={plant.id} plant={plant} handleUpdateButton={handleUpdateButton} update={update[plant.id]} />
-      ))}
+      {plants.map(plant => (
+        <PlantCard
+          key={plant.id}
+          plant={plant}
+          isSoledOut={isSoledOut}
+        handleToggle={handleToggle}
+        />
+      )) }
     </ul>
   );
 }
+
 export default PlantList;

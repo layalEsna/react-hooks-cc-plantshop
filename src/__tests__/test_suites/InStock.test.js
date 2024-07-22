@@ -26,6 +26,33 @@
 //   });
 // }) 
 
+// import React from 'react';
+// import { render, fireEvent, within } from '@testing-library/react';
+// import App from '../../components/App';
+// import '@testing-library/jest-dom';
+
+// describe('3rd Deliverable', () => {
+//   test('marks a plant as sold out', async () => {
+//     global.setFetchResponse(global.basePlants);
+
+//     const { findAllByTestId, findByText } = render(<App />);
+
+//     // Get all plant items
+//     const plantItems = await findAllByTestId('plant-item');
+//     expect(plantItems).toHaveLength(global.basePlants.length);
+
+//     // Select the first plant item
+//     const firstPlantItem = plantItems[0];
+
+//     // Find and click the "In Stock" button within the first plant item
+//     const inStockButton = within(firstPlantItem).getByText('In Stock');
+//     fireEvent.click(inStockButton);
+
+//     // Wait for the "Out of Stock" button to appear and verify its presence
+//     const outOfStockButton = await findByText('Out of Stock');
+//     expect(outOfStockButton).toBeInTheDocument();
+//   });
+// });
 import React from 'react';
 import { render, fireEvent, within } from '@testing-library/react';
 import App from '../../components/App';
@@ -44,12 +71,12 @@ describe('3rd Deliverable', () => {
     // Select the first plant item
     const firstPlantItem = plantItems[0];
 
-    // Find and click the "In Stock" button within the first plant item
-    const inStockButton = within(firstPlantItem).getByText('In Stock');
-    fireEvent.click(inStockButton);
+    // Find and click the "Out of Stock" button within the first plant item
+    const outOfStockButton = within(firstPlantItem).getByText('Out of Stock');
+    fireEvent.click(outOfStockButton);
 
-    // Wait for the "Out of Stock" button to appear and verify its presence
-    const outOfStockButton = await findByText('Out of Stock');
-    expect(outOfStockButton).toBeInTheDocument();
+    // Wait for the "In Stock" button to appear and verify its presence
+    const inStockButton = await findByText('In Stock');
+    expect(inStockButton).toBeInTheDocument();
   });
 });

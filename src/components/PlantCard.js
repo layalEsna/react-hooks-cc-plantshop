@@ -43,15 +43,35 @@
 // }
 
 // export default PlantCard;
+// import React from "react";
+
+// function PlantCard({ plant, handleUpdateButton, update }) {
+//   return (
+//     <li onClick={() => handleUpdateButton(plant.id)} className="card" data-testid="plant-item">
+//       <img src={plant.image} alt={plant.name} />
+//       <h4>{plant.name}</h4>
+//       <p>Price: {plant.price}</p>
+//       {update ? <button className="primary">In Stock</button> : <button>Out of Stock</button>}
+//     </li>
+//   );
+// }
+
+// export default PlantCard;
+
+
 import React from "react";
 
-function PlantCard({ plant, handleUpdateButton, update }) {
+function PlantCard({plant, isSoledOut,handleToggle}) {
   return (
-    <li onClick={() => handleUpdateButton(plant.id)} className="card" data-testid="plant-item">
+    <li className="card" data-testid="plant-item">
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
       <p>Price: {plant.price}</p>
-      {update ? <button className="primary">In Stock</button> : <button>Out of Stock</button>}
+      {isSoledOut[plant.id] ? (
+        <button className="primary" onClick={()=>handleToggle(plant.id)}>In Stock</button>
+      ) : (
+          <button onClick={()=>handleToggle(plant.id)}>Out of Stock</button>
+      )}
     </li>
   );
 }
