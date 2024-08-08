@@ -1,24 +1,25 @@
 
 
-import React from "react";
-import PlantCard from "./PlantCard";
+// import React from "react";
+// import PlantCard from "./PlantCard";
 
-function PlantList({plants, isSoledOut,handleToggle}) {
-  return (
-    <ul className="cards">
-      {plants.map(plant => (
-        <PlantCard
-          key={plant.id}
-          plant={plant}
-          isSoledOut={isSoledOut}
-        handleToggle={handleToggle}
-        />
-      )) }
-    </ul>
-  );
-}
+// function PlantList({plants, isSoledOut,handleToggle}) {
+//   return (
+//     <ul className="cards">
+//       {plants.map(plant => (
+//         <PlantCard
+//           key={plant.id}
+//           plant={plant}
+//           isSoledOut={isSoledOut}
+//         handleToggle={handleToggle}
+//         />
+//       )) }
+//     </ul>
+//   );
+// }
 
-export default PlantList;
+// export default PlantList;
+/////final
 
 
 
@@ -35,3 +36,27 @@ export default PlantList;
 
 // export default PlantList;
 //Original code
+
+
+import React from "react";
+import PlantCard from "./PlantCard";
+
+function PlantList({plants, handleToggle, isSoledOut, handleEditPrice, handleDelete}) {
+  return (
+    <ul className="cards">{plants.map(plant => (
+      <PlantCard
+        key={plant.id}
+        plant={plant}
+        handleToggle={handleToggle}
+        isSoledOut={isSoledOut}
+        handleEditPrice={handleEditPrice}
+        handleDelete={handleDelete}/>
+    
+    ))}</ul>
+  );
+}
+
+export default PlantList;
+
+
+

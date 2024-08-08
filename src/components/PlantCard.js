@@ -1,21 +1,22 @@
-import React from "react";
+// import React from "react";
 
-function PlantCard({plant, isSoledOut,handleToggle}) {
-  return (
-    <li className="card" data-testid="plant-item">
-      <img src={plant.image} alt={plant.name} />
-      <h4>{plant.name}</h4>
-      <p>Price: {plant.price}</p>
-      {isSoledOut[plant.id] ? (
-        <button className="primary" onClick={()=>handleToggle(plant.id)}>In Stock</button>
-      ) : (
-          <button onClick={()=>handleToggle(plant.id)}>Out of Stock</button>
-      )}
-    </li>
-  );
-}
+// function PlantCard({plant, isSoledOut,handleToggle}) {
+//   return (
+//     <li className="card" data-testid="plant-item">
+//       <img src={plant.image} alt={plant.name} />
+//       <h4>{plant.name}</h4>
+//       <p>Price: {plant.price}</p>
+//       {isSoledOut[plant.id] ? (
+//         <button className="primary" onClick={()=>handleToggle(plant.id)}>In Stock</button>
+//       ) : (
+//           <button onClick={()=>handleToggle(plant.id)}>Out of Stock</button>
+//       )}
+//     </li>
+//   );
+// }
 
-export default PlantCard;
+// export default PlantCard;
+////final
 
 
 
@@ -39,3 +40,21 @@ export default PlantCard;
 
 // export default PlantCard;
 //Original code
+
+function PlantCard({plant, handleToggle, isSoledOut, handleEditPrice, handleDelete}) {
+  return (
+    <li className="card" data-testid="plant-item">
+      <img src={plant.image} alt={plant.name} />
+      <h4>{plant.name}</h4>
+      <p onClick={()=>handleEditPrice(plant.id)}>Price: {plant.price}</p>
+      {isSoledOut[plant.id] ? (
+        <button className="primary" onClick={()=>handleToggle(plant.id)}>In Stock</button>
+      ) : (
+        <button onClick={()=>handleToggle(plant.id)}>Out of Stock</button>
+      )}
+      <button onClick={()=>handleDelete(plant.id)}>Delete</button>
+    </li>
+  );
+}
+
+export default PlantCard;
